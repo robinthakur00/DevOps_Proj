@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - name: stop container
+      shell:  docker container stop devops-web                   #name of container 
+    - name: remove container
+      shell: docker container rm devops-web 
+    - name: remove docker image
+      shell: docker image rm robinthakur00/devops-website                            #name of images (docker images)
+    - name: create new container
+      shell: docker container run -itd --name rockstar-container -p 9000:80 robinthakur00/devops-website     #(docker-job>> name of jenkins job)
